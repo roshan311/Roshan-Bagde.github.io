@@ -1,0 +1,358 @@
+/* ################################### main body code ######################################### */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+ 
+}
+.mainbody{
+         height: 100%;   
+}
+ /* ####################################### navigation bar ############################################ */
+ul li
+{
+    list-style: none;
+}
+
+.head
+{
+    height: 100vh;
+    position: relative;    
+    background: url(../img/7fe774bbacce09f00cb5b2e3cbc48db3.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.heading
+{
+    margin: 0;
+   color: honeydew;
+   margin-top: 1.5rem; 
+  float: left;
+   font-size: 2.6rem;
+   letter-spacing: 0.15em;
+   
+}
+
+.bar
+{
+      
+    padding: 1rem;
+    
+}
+.mainbody{
+    height: 10000vh;
+}
+.mainbody.head.bar{
+    position: sticky;
+    top: 3px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.6rem;
+    letter-spacing: 0.15em;
+    word-spacing: 20em;
+}
+.head .bar .nav-items
+{
+    float: right;
+}
+.bar::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.itme{
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1.5rem;
+}
+p,li{
+    font-size: 1.6rem;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.15em;
+}
+.bar a{
+    padding-bottom: 0.3rem;
+}
+.bar a:hover{
+    border-bottom: 1px solid rgb(7, 241, 151);;
+    color: rgb(7, 241, 151);
+}
+
+/* ##################################### utility classes ############################################ */
+.container{
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+.lg-heading
+{
+    font-size: 3.5rem;
+ 
+}
+.text-light{
+    font-size: 2rem;
+  
+}
+.md-heading
+{
+    font-size: 2.2rem;
+   
+}  
+
+/* ######################################### header contained ############################################# */
+
+.btn
+{
+    display: inline-block;
+    padding: 0.5em;
+    word-spacing: 0rem;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    border-radius: 10em;
+    border: 1px solid rgb(7, 241, 151);
+    background: rgb(7, 241, 151);
+    /* height: 4rem;
+    width: 6rem; */
+}
+.btn:hover{
+    border: 2px solid rgb(7, 241, 151);
+}
+.header-content
+{
+  /* font-weight: 700; */
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+.para-text{
+    color: honeydew;
+}
+.lr
+{
+    font-size: 3.5rem;
+    color:rgb(7, 241, 151);
+}
+
+/* #######################showcase section style ############################ */
+.showcase{
+    background: rgb(241, 240, 240);
+  
+   
+}
+.showhed
+{
+    width:60%;
+    text-align: center;
+
+}
+.he{
+    /* position: relative; */
+    padding-left: 50rem;
+    font-size: 3.5rem;
+    padding-top: 4rem;
+       
+} 
+
+.he::after{
+     content: "";
+     margin-top: 0.8em;
+     display: block;
+     border:2px solid grey;
+     width: 220px;
+    } 
+img{
+    width: 18rem;
+    border-radius: 100px ;
+
+}
+ .imgbox{
+     align-items: center;
+     padding-left: 52rem;
+ }
+img{
+    clip-path: circle();
+}
+.textbox{
+    padding-left: 10rem;
+    font-weight: 500;
+}
+ul{
+     position: sticky;
+ }
+
+/* ###############################Project code ################################# */
+.project{
+    background: rgba(221, 221, 221, 0.658);
+    
+}
+.project1{
+       padding: 6rem;
+}
+.box-show{
+     width: 500px;
+     height: 300px;
+     border: 2px solid green;
+   
+}
+.row1{
+       float:left;
+}
+.row2{
+    float:right;
+}
+.row3{
+    float:right;
+}
+.project1::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* ######################################## more section code ##################################### */
+.more
+{
+    background: rgba(245, 241, 241, 0.788);
+}
+.showhed1
+{
+    width:60%;
+    text-align: center;
+
+}
+.he1{
+    /* position: relative; */
+    padding-left: 50rem;
+    font-size: 3rem;
+    padding-top: 4rem;
+       
+} 
+
+.he1::after{
+    content: "";
+    margin-top: 0.8em;
+    display: block;
+    border:2px solid grey;
+    width: 220px;
+   } 
+
+.circle{
+    background:rgb(18, 212, 170);;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    align-items: center;
+    margin-left: 60rem;
+}
+.more1{
+      padding: 2rem;
+      text-align: center;
+      padding-left: 4rem;
+}    
+.more2{
+     text-align: center;
+     font-style: italic;
+     font-weight: 100;
+}
+.re{
+    padding: 4rem;
+}
+.navhole{
+    background:rgb(18, 212, 170);;
+    width: 80px;
+    height: 50px;
+    border-radius: 150px 150px 0 0;
+    align-items: center;
+    margin-left: 63.5rem;
+}
+/* ##################################################conttact code ##################################### */
+.contact{
+  background: rgba(221, 221, 221, 0.658);
+   height: 110vh;
+}
+.navhole1{
+    background:rgb(18, 212, 170);;
+    width: 80px;
+    height: 50px;
+    border-radius:  0 0 150px 150px;
+    align-items: center;
+    margin-left: 63.5rem;
+}
+.contact .more2{
+    font-weight: 400;
+}
+.contactbox:hover{
+      border-top:2px solid white;
+      border-left:2px solid white;
+      border-right:2px solid white;
+      border-bottom: 4px solid green;
+      margin-top: 0.1rem;
+      
+    
+}
+.contactbox1{
+        
+    background: white;
+    width: 45%;
+    align-items: center;
+    padding: 7rem;
+    margin: 0 auto;
+}
+.morecont{
+           text-align: center;
+           color: rgb(7, 241, 151);
+}
+.morecont1{
+        margin-top: 3rem;
+        text-align: center;
+        color: black;
+        font-weight: 500;
+        align-items: center;
+        margin-left: 10rem;
+}
+.morecont1:hover{
+      color:rgb(7, 241, 151) ;
+}
+.morecont2{
+        margin-top: 3rem;
+        text-align: center;
+        color: black;
+        font-weight: 500;
+        align-items: center;
+        margin-left: 18rem;
+}
+.morecont2:hover{
+    color:rgb(7, 241, 151) ;
+}
+/* ################################footer ################################### */
+
+.footer{
+    background:#263238;
+    padding: 2.5rem;
+    text-align: center;
+    color: #f4f4f4;
+    font-weight: 400;
+}
+
+/* ################################ map ########################################  */
+
+.map{
+  background:rgba(221, 221, 221, 0.658); 
+  padding-left: 50rem;
+  padding-bottom: 4rem;
+  zoom:0.8;
+}

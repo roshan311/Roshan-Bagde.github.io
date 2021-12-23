@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://groupc.arogyabharti2021.in/AdmitCardNew -->
+<html lang="en"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript">
+            var currentControllerName = 'Home';
+            var webAppPath = '';
+        </script>
+
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Index | Commissionerate of Health Services, Public Health Department Maharashtra State</title>
+
+    <link href="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/font-awesome.min.css">
+
+    <link href="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/custom.css" rel="stylesheet">
+    <link href="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/extra.css" rel="stylesheet">
+
+    
+    
+
+
+    
+    <script src="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/jquery-3.3.1.min.js.download"></script>
+    <script src="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/bootstrap.min.js.download"></script>    
+    
+    <script>
+
+        $(document).ready(function () {
+            $("#status").hide();
+            $("#dvWrapper").css("padding-top", "0px");
+        });
+
+        function isNumberKeywithPoint(e) {
+            var charCode = (e.which) ? e.which : event.keyCode
+            if ((charCode > 46) && (charCode > 31) && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+        }
+
+
+        function isNumberKey(e) {
+            var charCode = (e.which) ? e.which : event.keyCode
+            if ((charCode > 31) && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+        }
+
+        function isNumberKeyOnly(e) {
+            var charCode = (e.which) ? e.which : event.keyCode
+            if ((charCode > 31) && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+        }
+
+        function isNumberKeywithPoint(e) {
+            var charCode = (e.which) ? e.which : event.keyCode
+            if ((charCode > 46) && (charCode > 31) && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+        }
+
+        function isCharKeyOnly(evt) { //validate to input only Characters and spaces
+
+            var code = (evt.which) ? evt.which : event.keyCode
+            if (!((code > 64 && code < 91) || (code > 96 && code < 123) || code == 32 || code == 8))
+                return false;
+
+            return true;
+        }
+        function isCharKeyOnlyWithoutSpace(evt) { //validate to input only Characters 
+        
+            var code = (evt.which) ? evt.which : event.keyCode
+           
+            if (!((code > 64 && code < 91) || (code > 96 && code < 123) ||  code == 8))
+                return false;
+
+            return true;
+        }
+
+        function isAlphaNumeric(e) { //validate to input only alpha or numeric characters
+            var k;
+            document.all ? k = e.keyCode : k = e.which;
+            return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+        }
+
+        //To Upperise input stream
+        function toUpperTxt(id) {
+            id.value = id.value.toUpperCase();
+
+        }
+
+        function chkISNAN(txtName) {
+            var txtValue = document.getElementById(txtName).value;
+            if (isNaN(txtValue)) {
+                jAlert("Entered value Must be Numeric.", "Message");
+                document.getElementById(txtName).value = "";
+                document.getElementById(txtName).focus();
+                return false;
+            }
+            if (txtValue != "") {
+                var count = 0;
+                for (var i = 0; i < txtValue.length; i++) {
+                    var last = i + 1;
+                    var str = "";
+                    if (i < txtValue.length) {
+                        str = txtValue.substring(i, last);
+                    }
+                    else {
+                        str = txtValue.substring(i, txtValue.length - 1);
+                    }
+                    if (str == "0") {
+                        count++;
+                    }
+                }
+                if (count == txtValue.length) {
+                    jAlert("You can not Write 0 here", "Message");
+                    document.getElementById(txtName).value = "";
+                    document.getElementById(txtName).focus();
+                    return false;
+                }
+            }
+            return true;
+
+        }
+
+        $(document).ready(function () {
+            $("#loading").hide();
+            //$('.datatable').DataTable({
+            //    responsive: true
+            //});
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                $($.fn.dataTable.tables(true)).DataTable({
+                    responsive: true
+                })
+                    .columns.adjust()
+                    .responsive.recalc();
+            });
+            //$('body').tooltip({
+            //    selector: "[data-tooltip=tooltip]",
+            //    container: "body"
+            //});
+
+
+
+            //$('.calendar').datetimepicker({
+            //    format: "DD/MM/YYYY"
+            //});
+
+            //$('.calendarFormated').datetimepicker({
+            //    format: "DD/MM/YYYY",
+            //    maxDate: "01/01/2008"
+            //});
+
+            //$('.timepicker').datetimepicker({
+            //    format: "LT"
+            //});
+            //$('.datetimepicker').datetimepicker();
+
+
+            //$(".calendar").datepicker({ format: 'dd/mm/yyyy' })
+            //    .on('changeDate', function (e) {
+            //        $(this).datepicker('hide');
+            //    });
+            //$(document).ajaxStart(function () {
+            //    $("#loading").show();
+            //}).ajaxStop(function () {
+            //    $("#loading").hide();
+            //});
+
+        });
+        function LayoutChange() {
+            if ($("#ddlLayout").val() != "") {
+                location.href = webAppPath + $("#ddlLayout").val();
+            }
+
+        }
+
+        function topPage() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        function manojAlert(message) {
+            bootbox.alert({
+                title: "Validation Message",
+                message: message,
+                closeButton: false
+            });
+        }
+
+
+
+
+    </script>
+
+
+</head>
+
+<body>
+    <div id="loading" class="loader hide" style="display: none;">
+        <div class="loader-container">
+            <img src="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/load.gif" width="100">
+        </div>
+    </div>
+    <div class="page-wrap">
+
+        <header>
+            <div class="container">
+                <div class="logo"><a href="https://groupc.arogyabharti2021.in/AdmitCardNew#"><img src="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/logo.png" alt=""></a></div>
+                <div class="nationalHealthLogo"><img src="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/nationalHealthLogo.png" alt=""></div>
+                <ul class="headerHelp">
+                    <li>
+                        <span>Support Helpline</span>
+                        <p><i class="fa fa-phone" aria-hidden="true"></i> +91 9513315535</p>
+                    </li>
+                    <li>
+                        <span>Support Email ID</span>
+                        <p><i class="fa fa-envelope" aria-hidden="true"></i> support@arogyabharti2021.in</p>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="navigation">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://groupc.arogyabharti2021.in/">Home</a>
+                            </li>
+                            
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://groupc.arogyabharti2021.in/Images/Doc1/%E0%A4%9C%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%A4%20%E0%A4%97%E0%A4%9F%20%E0%A4%95%20%E0%A5%A8%E0%A5%A6%E0%A5%A8%E0%A5%A7%20(1).pdf">Advertisement/जहीरत</a>
+                            
+                        </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://groupc.arogyabharti2021.in/Home/Eligibilty">Vacancy Matrix/रिक्त पदानचा</a>
+                            </li>
+                            <li class="nav-item">
+                                
+                                <a class="nav-link" href="https://groupc.arogyabharti2021.in/Images/Doc/%E0%A4%95%E0%A4%AE%E0%A4%BE%E0%A4%B2%20%E0%A4%B5%20%E0%A4%95%E0%A4%BF%E0%A4%AE%E0%A4%BE%E0%A4%A8%20%E0%A4%B5%E0%A4%AF%E0%A5%8B%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%A6%E0%A4%BE%20(%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AF%E0%A5%8B%E0%A4%97%E0%A4%B6%E0%A4%BE%E0%A4%B3%E0%A4%BE%20%E0%A4%B5%E0%A5%88%E0%A4%9C%E0%A5%8D%E0%A4%9E%E0%A4%BE%E0%A4%A8%E0%A4%BF%E0%A4%95%20%E0%A4%85%E0%A4%A7%E0%A4%BF%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A5%A9%E0%A5%A6%20%E0%A4%9F%E0%A4%95%E0%A5%8D%E2%80%8D%E0%A4%95%E0%A5%87%20).pdf">Age Limits/वायो मर्यदा</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+
+            
+
+<script type="text/javascript" src="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/admitcardnew.js.download"></script>
+
+
+<link href="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/fonts_googleapi.css" rel="stylesheet">
+<style>
+    table {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .txt-center {
+        text-align: center;
+    }
+
+    .border- {
+        border: 1px solid #c3c3c3 !important;
+    }
+
+    .padding {
+        padding: 15px;
+    }
+
+    .mar-bot {
+        margin-bottom: 15px;
+        background-color: #fff;
+    }
+
+    .admit-card {
+        width: 85%;
+        display: block;
+        border: 2px solid #c3c3c3;
+        padding: 15px;
+        margin: 20px auto;
+        font-size: 13px;
+        background-color: #e8e8e8;
+    }
+
+    .BoxA h5, .BoxA p {
+        margin: 0;
+    }
+
+    h5 {
+        text-transform: uppercase;
+    }
+
+    table img {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .table-bordered td label {
+        margin-bottom: 0px;
+    }
+
+    .table-bordered td, .table-bordered th, .table thead th {
+        padding: 5px 10px;
+        border-color: #a7a7a7;
+    }
+
+    .header .p1 {
+        font-weight: 900;
+        font-size: 24px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .header .p2 {
+        font-size: 16px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+    }
+
+    .both-center-text {
+        height: 160px;
+        padding: 43px 13px;
+        color: #c1c1c1;
+    }
+
+    .sign-1, .sign-2 {
+        height: 26px;
+        text-align: center;
+        color: #c1c1c1;
+    }
+
+    .admt-ol li {
+        font-weight: 600;
+        list-style: none;
+        float: left;
+        margin-right: 45px;
+    }
+
+    .bg-light-yellow {
+        background-color: #ffffcc;
+    }
+
+    .fw-bold {
+        font-weight: 700 !important;
+    }
+
+    .roll-box, .roll-number {
+        padding-left: 0px;
+    }
+
+        .roll-box li {
+            list-style: none;
+            float: left;
+            width: 16.6%;
+            height: 35px;
+            border: 1px solid #333;
+        }
+
+        .roll-number li {
+            list-style: none;
+            float: left;
+            width: 10%;
+            margin-right: 10px;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            border: 1px solid #333;
+        }
+
+    table tr td p {
+        margin-bottom: 7px !important;
+    }
+
+    table #imgPhoto {
+        max-height: 140px !important;
+        max-width: 120px !important;
+    }
+
+    table #imgSign {
+        max-height: 60px !important;
+    }
+
+    @media print {
+        header, .navigation, .footer {
+            display: none;
+        }
+
+        .border- {
+            border: 1px solid #919191 !important;
+        }
+
+        .both-center-text {
+            height: 160px;
+            padding: 43px 13px;
+            color: #b1b1b1;
+        }
+
+        .sign-1, .sign-2 {
+            height: 26px;
+            text-align: center;
+            color: #b1b1b1;
+        }
+
+        .table-bordered td, .table-bordered th, .table thead th {
+            padding: 5px 10px;
+            border-color: #919191 !important;
+        }
+
+        .admit-card {
+            width: 100%;
+            display: block;
+            border: 2px solid #000;
+            padding: 15px;
+            margin: 20px auto;
+            font-size: 13px;
+        }
+    }
+
+    @media print {
+        #printPageButton {
+            display: none;
+        }
+    }
+    }
+</style>
+    <div id="printPageButton" style="margin-top: 10px; margin-left: 1148px;">
+        <input type="button" class="btn btn-danger" id="btnPrint" value="Print" onclick="window.print()">
+
+    </div>
+    <section>
+        <div class="container">
+
+            <div class="admit-card">
+                <div class="BoxA border- padding mar-bot bg-light-yellow">
+                    <div class="row">
+                        <div class="col-md-1 txt-center header">
+                            <img src="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/nhm-admit-card-logo.png" width="80px;">
+
+                        </div>
+                        <div class="col-md-3 header pl-4">
+                            <p class="p1">महाराष्ट्र शासन</p>
+                            <p class="p2"> “सार्वजनिक आरोग्य विभाग”</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <h4>प्रवेशपत्र <br>ADMIT CARD</h4>
+                        </div>
+
+                        <div class="col-md-4 header pt-3 text-right">
+                            <p class="p2">संवर्ग - गट क प्रवेश पत्र </p>
+
+                        </div>
+                        <!-- <div class="col-md-12 header1 pt-2">
+                            <p class="p2">परीक्षेसाठी अर्ज केलेल्या कार्यालयाचे नाव : <label>............................</label> </p>
+                        </div>-->
+                    </div>
+                </div>
+
+
+                <div class="BoxF border- padding mar-bot">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered mb-0">
+                                <tbody>
+                                    <tr>
+                                        <th colspan="2" class="text-center">
+                                            <b>उमेदवारांकरीता महत्‍वपूर्ण सूचना </b>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><b>टीप:</b> कृपया परीक्षेला हजर होण्यापूर्वी प्रश्नपत्रिकेवरील परीक्षा कोड तपासून बघावा. </p>
+                                            <p>
+                                                <b>१.</b> लांब पल्‍ल्‍यावरुन प्रवास करणाऱ्या उमेदवारांनी अत्यंत काळजीपुर्वक प्रवासाचे नियेाजन करावे. जेणेकरुन निर्धारित वेळेमध्‍ये परिक्षा केंद्रामध्‍ये पोहोचणे शक्‍य होईल.<br>
+                                                <b>२.</b> उमेदवारांनी रहदारीचा विचार करून प्रवासाचे नियोजन करावे.<br>
+                                                <b>३.</b> उमेदवारांनी त्यांच्या स्वतःच्या जबाबदारीने व स्‍वखर्चाने केंद्रावर परिक्षेसाठी निर्धारित वेळेत उपस्थित रहावे.<br>
+                                                <b>४.</b> फोटो असलेले पुरावा खालील पैकी एक मूळ ओळखपत्र, ओळखपत्र म्हणून ग्राह्य धरण्यात येईल.
+                                            </p>
+                                            <ol class="admt-ol clearfix">
+                                                <li>१. पॅन कार्ड  </li>
+                                                <li>२. पासपोर्ट </li>
+                                                <li>३. वाहन चालविण्याचा परवाना  </li>
+                                                <li>४. मतदार ओळखपत्र  </li>
+                                                <li>५. फोटोसह राष्ट्रयीकृत बँक पासबुक </li>
+                                                <li>६. मूळ आधार कार्ड </li>
+                                            </ol>
+                                            <p><b>५.</b>आपल्या अर्जा संदर्भात परीक्षेची तारीख व वेळ नमूद करण्यात आली आहे .कृपया आपल्या प्रवेश पत्रावर आपला फोटो चिटकवून घ्यावा. फोटो असलेले मूळ ओळखपत्र पुरावा म्हणून सोबत आणणे आवश्यक आहे.</p>
+                                            <p>
+                                                <b>६.</b>
+                                                <b> यापैकी एक मुळ फोटो ओळख पत्र व प्रवेश पत्र सादर न केल्‍यास परिक्षेस प्रवेश नाकारण्‍यात येईल. </b><br>
+                                                कृपया लक्षात ठेवा- रेशन कार्ड, फोटो आयडीचे रंगीत झेरॉक्स, e-aadhar card आणि फोटो आयडीची सॉफ्ट कॉपी या परीक्षेत वैध फोटो ओळख पुरावा म्हणून स्वीकारला जाणार नाही. आधार कार्डची रंगीत झेरॉक्स स्वीकारली जाणार नाही. <b>प्रवेश पत्रावर नमूद केलेल्या वेळेपूर्वी किमान एक तास आधी परीक्षेच्या ठिकाणी उपस्थित राहणे परीक्षार्थीस अनिवार्य आहे. परिक्षा सुरु होण्‍याच्‍या निर्धारित वेळेच्‍या ३० मिनिट अगोदर परिक्षा केंद्रात प्रवेश बंद केला जाईल .</b> उशीरा उपस्थित झाल्‍यामुळे प्रवेश नाकारल्यास उमेदवार स्वत: जबाबदार असतील. उमेदवारांना परीक्षा समाप्त होईपर्यंत परीक्षा हॉल सोडण्याची परवानगी दिली जाणार नाही.
+                                            </p>
+                                            <p><b>७.</b><b>महत्वाचे:</b> उमेदवाराने प्रवेश पत्रावर चिकटवलेले छायाचित्र हे त्याच्या ऑनलाईन अर्जामध्ये अपलोड केलेल्या छायाचित्राशी जुळणे आवश्यक आहे,नसल्यास उमेदवारास परीक्षेला बसू दिले जाणार नाही. उमेदवाराची सही त्यांनी अपलोड केलेल्या सहीसोबत जुळणे आवश्यक आहे, नसल्यास उमेदवारास परीक्षेला बसू दिले जाणार नाही. उमेदवार मूळ फोटो ओळख पुरावा किंवा नाव बदलाच्या पुराव्याशिवाय आल्यास त्यास परीक्षेला बसू दिले जाणार नाही. मूळ फोटो ओळख पुरावा हा परीक्षेच्या दिवशी वैध असणे आवश्यक आहे. उशिरा येणाऱ्या उमेदवारास कोणत्याही परिस्थितीत परीक्षेला बसण्याची परवानगी दिली जाणार नाही.<b>परीक्षेच्या दिवशी प्रवेश पत्र घेऊन येणे अनिवार्य आहे.</b></p>
+                                            <p class="mb-2"><b>८.</b> उमेदवारास आपले प्रवेश पत्र त्यावर जोडलेल्या फोटोसह आणि मूळ फोटो ओळख पुराव्यासह सादर करणे आवश्यक आहे. कृपया याची नोंद घ्यावी की, तुमचे हॉल तिकीट वरील नाव (अर्जामध्ये माहिती दिल्या प्रमाणे)आणि फोटो ओळख पुराव्यामधील नाव हे जुळणे आवश्यक आहे. </p>
+
+
+                                            <p><b>९.</b> ज्‍या उमेदवाराचे प्रवेश पत्रावरील नाव आणि ओळखपत्रावरील नाव यांच्यामध्ये काही फरक आढळल्यास परीक्षेस बसू दिले जाणार नाही. ज्या उमेदवारांनी आपले नाव बदललेले आहे त्यांना फक्त राजपत्र अधिसूचना/ विवाह प्रमाणपत्र / मूळ शपथपत्र असल्यास परवानगी देण्यात येईल. ज्‍या महिला उमेदवारांनी स्वतःचे/ मधले / आडनाव लग्नानंतर बदलले आहे त्यांनी याची विशेष नोंद घ्यावी. </p>
+
+                                            <p><b>१०</b> आपल्याबरोबर काळाा/निळा बॉल पॉइंट पेन आणणे आवश्यक आहे. </p>
+                                            <p><b>११.</b> उमेदवारास प्रवेश पत्र देण्यात आले आहे म्हणजे विभागाने तुमची परीक्षेस बसण्याची विनंती मान्य केली किंवा तुम्ही अर्जा मध्ये दिलेली माहिती मान्य केली असे नाही. उमेदवाराने याची नोंद घ्यावी कि परीक्षेच्या निकालाच्या आधारावर संबंधित विभागामार्फत पात्र उमेदवारांची कागदपत्र पडताळणी केली जाईल. त्यामुळे उमेदवाराने याची नोंद घ्यावी कि परीक्षेच्या कोणत्याही टप्प्यावर असे आढळून आले कि तुम्ही अर्जा मध्ये दिलेली अर्हता पूर्ण करीत नाहीत तर आपल्याला परीक्षेला बसू दिले जाणार नाही तसेच त्यापुढील टप्प्यावर हि आपल्या नावाचा विचार केला जाणार नाही याची नोंद घ्यावी. </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><b>१२.</b> या परीक्षेत पुस्तके, नोटबुक, कॅलकुलेटर्स, वॉच कॅलकुलेटर, स्मार्ट वॉच, कॅमेरा, ब्लूटूथ डिव्हाईस, पेजेर्स, पेन ड्राईव्ह, मोबाईल फोन इत्यादींचा वापर करण्याची परवानगी नाही. उमेदवारांना सूचित करण्यात येते कि, मोबाईल फोन, पेजर किंवा तत्सम साहित्य तसेच कोणतीही बंदी असलेली वस्तू, वैयक्तिक  सामान परीक्षा केंद्रावर आणू नये, परीक्षा चालू असतांना जर एखादा उमेदवार कुणाला मदत करतांना किंवा कुणाची मदत घेताना आढळून आल्यास तसेच काही गैरवर्तन करताना आढळून आल्यास त्यावर परीक्षा देण्यास बंदी आणि त्याच्या विरुद्ध गुन्हा दाखल केला जाईल. दुसरा उमेदवार आपले उत्तर कॉपी करणार नाही याची उमेदवाराने स्वतः दक्षता घेणे आवश्यक आहे. </p>
+                                            <p><b>१३.</b> कोणतीही माहिती उघड करणे, प्रसार करणे, साठवणे किंवा संचरण सुलभ करणे आणि कोणत्याही स्वरूपातील परीक्षा सामग्रीचे संग्रह किंवा त्यातील संपूर्ण माहिती किंवा त्याच्यातील काही माहिती किंवा कोणत्याही अर्थाने मौखिक किंवा लिखित, इलेकट्रोनिक किंवा यांत्रिक स्वरूपातील माहिती अनधिकृतपणे ताब्यात असल्याचे आढळून आल्यास किंवा परीक्षेच्या हॉल मध्ये दिलेली कागदपत्रे काढून टाकणे किंवा अशी घटना घडल्यास नियमानुसार कारवाई करण्यात येईल आणि त्याच्याविरुद्ध  गुन्हा दाखल केला जाईल. </p>
+
+                                            <p><b>१४.</b> तारीख / सत्र / केंद्र / ठिकाण बदलण्याची कोणतीही विनंती स्वीकारली जाणार नाही.</p>
+                                            <p><b>१५.</b> अपवादात्मक परिस्थिती मध्ये आपत्कालीन परिस्थिती उद्भवल्यास त्याचा परिणाम आयोजनामध्ये होऊ शकतो, अशावेळेस परिस्थितीनुरूप योग्य ते सर्व प्रयत्न परीक्षेच्या आयोजनासाठी केले जातील. यामध्ये परीक्षा केंद्राचे स्थान बदलणे, परीक्षेस विलंबाने सुरुवात करणे, परीक्षा पुन्हा घेणे, इत्यादींचा समावेश असो शकेल. या निर्णयात जे उमेदवार सामील होणार नाहीत त्यांची उमेदवारी रद्द समजण्यात येईल. या बाबतचे सर्व अधिकार विभागाकडे असतील.</p>
+
+                                            <p><b>१६.</b> परीक्षा प्रक्रियेच्या कोणत्याही टप्प्यावर उमेदवाराने दिलेली माहिती चुकीची आहे किंवा उमेदवाराने नियमांचे उल्लंघन केलेले आढळून आल्यास त्याना परिक्षेस बसू दिले जाणार नाही. तसेच परिक्षेनंतरच्‍या प्रक्रियेमध्‍ये दिलेली माहिती चुकीची आहे हे निष्‍पन्‍न झाल्‍यास उमेदवार पुढील नियमानुसार होणा-या कारवाईस पात्र राहतील. </p>
+
+                                            <p><b>१७.</b> उमेदवाराने परीक्षेच्या वेळेस दिलेल्या हजेरीपत्रावरील स्वतःचे छायाचित्र आणि स्वाक्षरीच्या समोर स्वाक्षरी करणे अनिवार्य आहे. अन्यथा उमेदवाराची स्वाक्षरी ग्राहय धरली जाणार नाही.</p>
+                                            <p><b>१८.</b> उमेदवारास मुखपट (मास्‍क) विना परिक्षा कक्षात प्रवेश दिला जाणार नाही. परिक्षेच्‍या वेळी सुध्‍दा मुखपट वापरणे बंधनकारक राहील. </p>
+                                            <p>
+                                                <b>१९.</b> दिव्‍यांग उमेदवारांना लेखनिक पुरविण्‍याबाबत -<br>
+                                                शासन परिपत्रक, सामाजिक न्‍याय व विशेष सहाय विभाग, क्रमांक न्‍यायाप्र-२०१४/प्र.क्र.१अ.क्र.२, दिनांक १८ मार्च,२०१४ अन्‍वये शासनाने जारी केलेल्‍या आदेशानुसार दृष्‍टीहीन, अल्‍पदृष्‍टी, सेरेब्रल पाल्‍सी आणि डिस्‍लेक्सियाने बाधित उमेदवार लिहिण्‍यासाठी सक्षम नसल्‍यास परीक्षा प्रयोजनार्थ त्‍यांच्‍या मागणीप्रमाणे लेखनिक व अन्‍य बाबीं सदर्भात व्‍यवस्‍था करण्‍यात येईल.
+                                                परिक्षेच्‍या वेळी लेखनिक उपलब्‍ध करुन देण्‍याबाबत अर्जामध्‍ये सुस्‍पष्‍ट मागणी केलेली असणे आवश्‍यक आहे.
+                                                अर्जामध्‍ये मागणी केली नसल्‍यास व आयुक्‍तालयाची पुर्वपरवानगी घेतली नसल्‍यास ऐनवेळी लेखनिकाची मदत घेता येणार नाही.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center">
+                                            OMR INSTRUCTIONS <br>ओ एम आर उत्तरपत्रिकेसंदर्भात सूचना
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>१.</b> Use only black/blue ball point pen to darken the circle.<br>
+                                            योग्य वर्तुळ गडद करण्यासाठी फक्त निळा / काळा बॉल पॉईंट पेन वापरा.<br>
+                                            <b>२.</b> Please darken the complete circle.<br>
+                                            कृपया पूर्ण वर्तुळ गडद करा<br>
+                                            <b>३.</b> Darken only one circle for each question as bellow:<br>
+                                            प्रत्येक प्रश्नासाठी खालीलप्रमाणे फक्त एक वर्तुळ गडद करा:<br>
+                                            <b>४.</b>Answer once marked cannot be changed.<br>
+                                            एकदा चिन्हांकित केलेले उत्तर बदलले जाऊ शकत नाही<br>
+                                            <img src="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/correct-incorrect.png" style="margin-top: 10px; margin-bottom:10px; width: 460px; ">
+                                            <br>
+                                            <b>५.</b> Please do not make any stray mark on the answer sheet.<br>
+                                            कृपया उत्तरपत्रिकेवर उत्तराचे गडद केलेले फक्त एकच वर्तुळ सोडून इतर कोणत्याही प्रकारच्या खाणाखुणा करू
+                                            नये.<br>
+                                            <b>६.</b> Roughwork must not be done on the answer sheet.<br>
+                                            उत्तर पत्रिकेवर उत्तर तयार करण्यासाठीचे कच्चे काम केले जाऊ नये<br>
+                                            <b>७.</b> Darken your answer in the appropriate circle in the answer sheet against the number
+                                            corresponding to question number of question paper.<br>
+                                            प्रश्न पत्रिकेतील प्रशनांच्या क्रमांका नुसार त्या त्या
+                                            प्रश्नाचे उत्तर देणेसाठी उत्तरपत्रिकेवर त्याच क्रमांकाचे योग्य वर्तुळ गडद करावे.<br>
+
+                                            <b>८.</b> ओ एम आर उत्तरपत्रिकेत मुख्यप्रतीसह कार्बन कॉपी जोडण्यात आल्या आहेत त्यातील मुख्य प्रत हि
+                                            परीक्षाकेंद्रातील पर्यवेक्षकाकडे जमा करावी व कार्बन कॉपी परीक्षे नंतर घेऊन जावी . <br>
+                                            Original OMR answer sheets will be provided to every candidate attached with
+                                            carbon copy. Original answer sheet should be submitted to the invigilator and carbon
+                                            copy can be taken by the candidates after completion of exam.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-center border-bottom mb-3">
+                                                <h6 class="fw-bold">Examples How to Fill and Mark on Original Copy<br> (With Blue/Black Ball Point Pen Only) </h6>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <img src="./Index _ Commissionerate of Health Services, Public Health Department Maharashtra State_files/omr.png" class="img-gluid">
+                                                </div>
+                                                <div class="col-md-3 pl-0" style="margin-top: 3px">
+                                                    <div class="border- padding">
+                                                        <h5>Important</h5>
+                                                        <p>The candidate should check carefully that the question booklet code printed on the answer sheet is the same as Printed on the question booklet. In case of discrepancy, the candidate should immediately report the matter to the invigilator for replacement of both the question booklet and the OMR answer sheet. </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <footer class="bg-light-yellow">
+                    <p class="mb-0 p-2"><b>अभिवेदन -</b> मी परीक्षेचे सर्व नियम वाचले आहेत आणि केवळ हे नियम समजून घेतल्यानंतर मी हा अर्ज भरला आहे.या अर्जामध्ये दिलेली सर्व माहिती माझ्या व्यक्तिगत माहिती व समजुतीनुसार खरी आहे. सदर माहिती खोटी आढळून आल्यास, मला माहित आहे की मला परिक्षेस बसू दिले जाणार नाही व या नियमाचा भंग माझेकडून झाल्‍यास नियमानुसार कायदेशीर कारवाईस व त्‍यातील तरतूदीनुसार मी शिक्षेस पात्र राहीन याची मला पूर्ण जाणीव आहे.</p>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <ul>
+                <li><a href="https://groupc.arogyabharti2021.in/Home/Downloads">Downloads</a><span>|</span></li>
+                
+               
+                <li><a href="https://nrhm.maharashtra.gov.in/legal.htm">Disclaimer</a><span>|</span></li>
+                <li><a target="_blank" href="https://nrhm.maharashtra.gov.in/Default.aspx">NRHM Website</a></li>
+            </ul>
+            <p>Copyright © Commissionerate of Health Services, Public Health Department Maharashtra State </p>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    
+
+    <script>
+
+        // Select and loop the container element of the elements you want to equalise
+        $('.container').each(function () {
+
+            // Cache the highest
+            var highestBox = 0;
+
+            // Select and loop the elements you want to equalise
+            $('.sameHeight', this).each(function () {
+
+                // If this box is higher than the cached highest then store it
+                if ($(this).height() > highestBox) {
+                    highestBox = $(this).height();
+                }
+
+            });
+
+            // Set the height of all those children to whichever was highest
+            $('.sameHeight', this).height(highestBox);
+
+        });
+
+
+
+
+
+    </script>
+
+
+
+
+
+</body></html>

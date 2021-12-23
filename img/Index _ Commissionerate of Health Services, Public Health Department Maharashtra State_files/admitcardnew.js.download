@@ -1,0 +1,413 @@
+﻿
+$(document).ready(function () {
+    debugger;
+    // alert();
+    GetDataOnLoad();
+
+    $("#ddlPostShift1").change(function () {
+        GetDistrictShift1(this.value);
+    });
+
+    GetPostShift1();
+
+
+    $("#ddlPostShift2").change(function () {
+        GetDistrictShift2(this.value);
+    });
+    GetPostShift2();
+    GetShiftFirstData();
+    GetShiftSecondData();
+
+    $("#btnSaveShift2").click(function () {
+
+        var ddlPostShift2 = $('#ddlPostShift1').val();
+        var ddlDistrictShift2 = $('#ddlDistrictShift1').val();
+
+        if (ddlPostShift2 == 0) {
+            alert("Please Select Post.");
+            return;
+
+        }
+        else if (ddlDistrictShift2 == 0) {
+            alert("Please Select District.");
+            return;
+        }
+        else if (!$('#chkDeclShift2').is(':checked')) {
+            alert('Please check the declaration.');
+            return;
+        }
+
+
+        else {
+            SaveShift2();
+        }
+    });
+
+    $("#btnSaveShift1").click(function () {
+
+        var ddlPostShift1 = $('#ddlPostShift2').val();
+        var ddlDistrictShift1 = $('#ddlDistrictShift2').val();
+
+
+
+        if (ddlPostShift1 == 0) {
+            alert("Please Select Post.");
+            return;
+        }
+        else if (ddlDistrictShift1 == 0) {
+            alert("Please Select District.");
+            return;
+        }
+        else if (!$('#chkDeclShift1').is(':checked')) {
+            alert('Please check the declaration.');
+            return;
+        }
+
+        else {
+            SaveShift1();
+        }
+    });
+
+    //  GetPostShift11();//Bind post of first div shift 1.
+    // GetPostDistrictShift11(); //Bind district firt div shift 1.
+
+
+    // GetPostShift22();// Bind Post of first div shift 2.
+    // GetPostDistrictShift22();// Bind District of first div shift 2.
+})
+
+
+
+
+function GetPostShift1() {
+    $.post(webAppPath + "/AdmitCardDownload/BindPostShift1", function (result) {
+        var i = 0;
+        var jsonData = eval(result);
+
+        listItems = "<option value='0'>[Choose One]</option>";
+        for (var i = 0; i < jsonData.Table.length; i++) {
+            listItems += "<option value='" + jsonData.Table[i]["PostMasterId"] + "'>" + jsonData.Table[i]["PostMasterName"] + "</option>";
+
+        }
+        $("#ddlPostShift1").html(listItems);
+        //   $("#ddlPost").html(listItems);
+
+
+    });
+}
+
+function GetPostShift2() {
+    $.post(webAppPath + "/AdmitCardDownload/BindPostShift2", function (result) {
+        var i = 0;
+        var jsonData = eval(result);
+
+        listItems = "<option value='0'>[Choose One]</option>";
+        for (var i = 0; i < jsonData.Table.length; i++) {
+            listItems += "<option value='" + jsonData.Table[i]["PostMasterId"] + "'>" + jsonData.Table[i]["PostMasterName"] + "</option>";
+
+        }
+        $("#ddlPostShift2").html(listItems);
+        //   $("#ddlPost").html(listItems);
+
+
+    });
+}
+
+
+
+
+
+////Bind post shift 1 (first div)
+//function GetPostShift11() {
+//    $.post(webAppPath + "/AdmitCardDownload/BindPostDistrictShift1", function (result) {
+//        var i = 0;
+//        var jsonData = eval(result);
+
+//        listItems = "<option value='0'>[Choose One]</option>";
+//        for (var i = 0; i < jsonData.Table.length; i++) {
+//            listItems += "<option value='" + jsonData.Table[i]["PostMasterId"] + "'>" + jsonData.Table[i]["PostMasterName"] + "</option>";
+
+//        }
+//        $("#ddlPostShift11").html(listItems);
+//        //   $("#ddlPost").html(listItems);
+
+
+//    });
+//}
+
+//Bind District shift 1 (first div)
+function GetDistrictShift1(postid) {
+    $.post(webAppPath + "/AdmitCardDownload/BindDistrictShift1", { PostId: postid }, function (result) {
+        var i = 0;
+        var jsonData = eval(result);
+
+        listItems = "<option value='0'>[Choose One]</option>";
+        for (var i = 0; i < jsonData.Table.length; i++) {
+            listItems += "<option value='" + jsonData.Table[i]["PostPaymentId"] + "'>" + jsonData.Table[i]["DistrictName"] + "</option>";
+
+        }
+        $("#ddlDistrictShift1").html(listItems);
+        //   $("#ddlPost").html(listItems);
+
+
+    });
+}
+
+
+
+
+
+
+////Bind post shift 2 (first div)
+//function GetPostShift22() {
+//    $.post(webAppPath + "/AdmitCardDownload/BindPostDistrictShift2", function (result) {
+//        var i = 0;
+//        var jsonData = eval(result);
+
+//        listItems = "<option value='0'>[Choose One]</option>";
+//        for (var i = 0; i < jsonData.Table.length; i++) {
+//            listItems += "<option value='" + jsonData.Table[i]["PostMasterId"] + "'>" + jsonData.Table[i]["PostMasterName"] + "</option>";
+
+//        }
+//      //  $("#ddlPostShift22").html(listItems);
+//        //   $("#ddlPost").html(listItems);
+
+
+//    });
+//}
+
+//Bind District shift 2 (first div)
+function GetDistrictShift2(postid) {
+    $.post(webAppPath + "/AdmitCardDownload/BindDistrictShift2", { PostId: postid }, function (result) {
+        var i = 0;
+        var jsonData = eval(result);
+
+        listItems = "<option value='0'>[Choose One]</option>";
+        for (var i = 0; i < jsonData.Table.length; i++) {
+            listItems += "<option value='" + jsonData.Table[i]["PostPaymentId"] + "'>" + jsonData.Table[i]["DistrictName"] + "</option>";
+
+        }
+        $("#ddlDistrictShift2").html(listItems);
+        //   $("#ddlPost").html(listItems);
+
+
+    });
+}
+
+
+
+function GetShiftFirstData() {
+    debugger;
+    $.post(webAppPath + "/AdmitCardDownload/GetAdmitCardDownloadData", function (result) {
+        debugger;
+        var i = 0;
+        var jsonData = eval(result);
+        // var html ;
+        html = "<tr style='background-color:#ffffcc;'><th>Sr.No.</th><th>Post</th><th>Admit Card</th></tr>";
+        for (var i = 0; i < jsonData.Table1.length; i++) {
+
+
+            html += "<tr><td>" + parseInt(i + 1) + "</td><td>" + jsonData.Table1[i]["PostMasterName"] + "</td><td><a href=AdmitCardNew?a=" + jsonData.Table1[i]["PostmasterId"] + "><img src='/Images/pdf_icon.jpg' width='25px' /> Download </a></td></tr>";
+
+        }
+        $("#tbody_Shift_1").html(html);
+        //   $("#ddlPost").html(listItems);
+    });
+}
+
+
+
+
+function GetShiftSecondData() {
+    debugger;
+    $.post(webAppPath + "/AdmitCardDownload/GetAdmitCardDownloadData", function (result) {
+        debugger;
+        var i = 0;
+        var jsonData = eval(result);
+        // var html ;
+        html = "<tr style='background-color:#ffffcc;'><th>Sr.No.</th><th>Post</th><th>Admit Card</th></tr>";
+        for (var i = 0; i < jsonData.Table.length; i++) {
+
+
+            html += "<tr><td>" + parseInt(i + 1) + "</td><td>" + jsonData.Table[i]["PostMasterName"] + "</td><td><a href=AdmitCardNew?a=" + jsonData.Table[i]["PostmasterId"] + "><img src='/Images/pdf_icon.jpg' width='25px' /> Download </a></td></tr>";
+
+        }
+        $("#tbody_Shift_2").html(html);
+        //   $("#ddlPost").html(listItems);
+    });
+}
+
+
+
+
+
+function SaveShift2() {
+
+    var PostId = $('#ddlPostShift1').val();
+    var DistrictId = $('#ddlDistrictShift1').val();
+    var shift = 2;
+
+    $.ajax({
+        url: webAppPath + '/AdmitCardDownload/SavePostDistrict/',
+        data: JSON.stringify({ 'PostId': PostId, 'DistrictId': DistrictId, 'Shift': shift }),
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        success: function (result) {
+
+            var jsonData = eval(result);
+
+            var DataInsert = jsonData.Table[0]["InsertedShift2"]
+            if (DataInsert == 1) {
+                $('#dvShift2').show();
+                $('#btnSaveShift2').hide();
+            }
+            else {
+                $('#dvShift2').hide();
+                $('#btnSaveShift2').show();
+
+            }
+            /*     alert(jsonData.Table[0]["Inserted"]);*/
+
+            //isSuccess = result;
+        },
+        error: function (result) {
+            //  isSuccess = result;
+        }
+
+    })
+}
+
+
+function SaveShift1() {
+
+    var PostId = $('#ddlPostShift2').val();
+    var DistrictId = $('#ddlDistrictShift2').val();
+    var shift = 1;
+
+    $.ajax({
+        url: webAppPath + '/AdmitCardDownload/SavePostDistrictShift1/',
+        data: JSON.stringify({ 'PostId': PostId, 'DistrictId': DistrictId, 'Shift': shift }),
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        success: function (result) {
+
+            var jsonData = eval(result);
+
+            var DataInsert = jsonData.Table[0]["InsertedShift1"]
+            if (DataInsert == 1) {
+                $('#dvShift1').show();
+                $('#btnSaveShift1').hide();
+            }
+            else {
+                $('#dvShift1').hide();
+                $('#btnSaveShift1').show();
+
+            }
+            /*     alert(jsonData.Table[0]["Inserted"]);*/
+
+            //isSuccess = result;
+        },
+        error: function (result) {
+            //  isSuccess = result;
+        }
+
+    })
+}
+
+
+function GetDataOnLoad() {
+    debugger;
+    $.post(webAppPath + "/AdmitCardDownload/GetDataOnLoad", function (result) {
+
+        /*Shift 2--------------------------------------------------------*/
+        var jsonData = eval(result);
+
+        if (jsonData.Table.length > 0) {
+            var DataInsert = jsonData.Table[0]["InsertedShift2"]
+            if (DataInsert == 1) {
+                $('#dvShift2').show();
+                $('#btnSaveShift2').hide();
+            }
+            else {
+                $('#dvShift2').hide();
+                $('#btnSaveShift2').hide();
+            }
+
+        }
+
+        /*Shift 1 ---------------------------------------------------------*/
+
+        if (jsonData.Table1.length > 0) {
+            var DataInsert1 = jsonData.Table1[0]["InsertedShift1"]
+            if (DataInsert1 == 1) {
+                $('#dvShift1').show();
+                $('#btnSaveShift1').hide();
+            }
+            else {
+                $('#dvShift1').hide();
+                $('#btnSaveShift1').hide();
+            }
+        }
+
+        if (jsonData.Table2.length > 0) {
+
+            var Shift_2 = jsonData.Table2[0]["Shift_2"]
+
+            if (Shift_2 == 1) {
+                $('#dvPostDropDownShift2').show();
+            }
+            else {
+                $('#dvPostDropDownShift2').hide();
+            }
+
+        }
+
+
+
+        if (jsonData.Table3.length > 0) {
+            var Shift_3 = jsonData.Table3[0]["Shift_1"]
+
+
+            if (Shift_3 == 1) {
+                $('#dvPostDropDownShift1').show();
+            }
+            else {
+                $('#dvPostDropDownShift1').hide();
+            }
+        }
+
+
+
+
+    });
+}
+
+
+
+
+
+
+//function SaveClick() {
+
+//    var PostId = $('#ddlPostShift2').val();
+//    var DistrictId = $('#ddlDistrictShift2').val();
+//    var shift = 1;
+
+//    $.ajax({
+//        url: webAppPath + '/AdmitCardDownload/SaveClick/',
+//        data: JSON.stringify({ 'PostId': PostId, 'DistrictId': DistrictId, 'Click': 1, 'shift': shift }),
+//        type: 'POST',
+//        contentType: 'application/json; charset=utf-8',
+//        success: function (result) {
+
+           
+//        },
+//        error: function (result) {
+           
+//        }
+
+//    })
+//}
+
+
+
